@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MovieCards() {
+export default function MovieCards(props) {
     return (
         <div>
             
