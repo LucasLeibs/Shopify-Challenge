@@ -7,11 +7,11 @@ export default class MovieContainer extends Component {
     }
     
     fetchMovies = (query) => {
-        fetch(`http://www.omdbapi.com/?t=${query}&apikey=a5bbe8e0`)
+        fetch(`http://www.omdbapi.com/?s=${query}&type=movie&page=1&apikey=a5bbe8e0`)
         .then(res => res.json())
         .then(data => {
             this.setState({
-                movies: data
+                movies: data.Search.splice(0, 5)
             })
         })
     }

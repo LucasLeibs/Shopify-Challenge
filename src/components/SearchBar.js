@@ -26,7 +26,7 @@ props.fetchMovies(queryVal)
           label='Search Movies'
           style={{ margin: 8 }}
           placeholder="Movie Title"
-          
+          required={true}
           fullWidth
           margin="normal"
           InputLabelProps={{
