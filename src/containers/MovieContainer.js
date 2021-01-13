@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import MovieCards from '../components/MovieCards'
 import SearchBar from '../components/SearchBar'
+import Button from '@material-ui/core/Button';
+
 export default class MovieContainer extends Component {
     state = {
-        movies:[]
+        movies:[], 
+        startIndex: 0
     }
     
     fetchMovies = (query) => {
@@ -11,17 +14,19 @@ export default class MovieContainer extends Component {
         .then(res => res.json())
         .then(data => {
             this.setState({
-                movies: data.Search.splice(0, 5)
+                movies: data.Search
             })
         })
     }
-
+   
+   
     render() {
         console.log(this.state.movies)
         return (
             <div>
                 <SearchBar fetchMovies = {this.fetchMovies}/>
                 <MovieCards movies = {this.state.movies}/>
+             
             </div>
         )
     }
