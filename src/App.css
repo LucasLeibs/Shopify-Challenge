@@ -93,6 +93,9 @@ transform: translate(-50%, -50%);
   height: 200px;
 }
 
-.forward {
-  z-index: 1;
+
+.directional-buttons {
+  position: absolute ;
+  top: 80%;
+  left: 34%;
 }
