@@ -55,10 +55,10 @@ export default class MovieCards extends Component {
                 {this.props.movies.slice(this.state.startIndex, this.state.startIndex + 3).map(movie => (
                     <div className="column">
                         <div className="card"> 
-                       
-                        <img className="movie-poster" src={movie.Poster}/>
-                        <p>{movie.Title}</p>
                         <Button>Nominate</Button>
+                        <img className="movie-poster" src={movie.Poster}/>
+                        <p className="movie-title">{movie.Title}</p>
+                       
                         </div>
                     </div>
               

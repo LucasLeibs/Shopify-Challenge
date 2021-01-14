@@ -64,7 +64,7 @@ margin: 0 -5px;
 overflow: hidden;
 position: absolute;
 width: 900px;
-height: 350px;
+height: 400px;
 left: 40%;
 top: 55%;
 transform: translate(-50%, -50%);
@@ -98,4 +98,17 @@ transform: translate(-50%, -50%);
   position: absolute ;
   top: 80%;
   left: 34%;
+}
+
+.movie-title {
+  height: 39px;
+
+  
+ 
+  text-overflow: ellipsis;
+
+  /* Required for text-overflow to do anything */
+ 
+  overflow: auto;
+  margin-bottom: 20px;
 }
