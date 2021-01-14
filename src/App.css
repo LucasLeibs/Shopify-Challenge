@@ -108,7 +108,17 @@ transform: translate(-50%, -50%);
   text-overflow: ellipsis;
 
   /* Required for text-overflow to do anything */
- 
+      
   overflow: auto;
   margin-bottom: 20px;
+}
+
+.nominations-container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  
+  background-color: #f1f1f1;
+  margin: 10px;
+  width: 300px;
+  height: 350px;
 }

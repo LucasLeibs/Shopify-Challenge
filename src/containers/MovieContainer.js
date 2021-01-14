@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MovieCards from '../components/MovieCards'
 import SearchBar from '../components/SearchBar'
 import Button from '@material-ui/core/Button';
+import NominationsContainer from './NominationsContainer'
 
 export default class MovieContainer extends Component {
     state = {
@@ -26,7 +27,7 @@ export default class MovieContainer extends Component {
             <div>
                 <SearchBar fetchMovies = {this.fetchMovies}/>
                 <MovieCards movies = {this.state.movies}/>
-             
+                {/* <NominationsContainer movies = {this.state.movies} /> */}
             </div>
         )
     }
