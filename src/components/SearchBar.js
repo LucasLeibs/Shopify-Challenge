@@ -4,6 +4,16 @@ import InputBase from '@material-ui/core/InputBase'
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
+import {makeStyles}from '@material-ui/core/styles'
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '&$focused $notchedOutline': {
+      borderColor: 'green'
+   }
+  },
+focused: {},
+notchedOutline: {}
+}));
 
 export default function SearchBar(props) {
 
@@ -12,15 +22,18 @@ const query = useRef()
 const handleSearch = (e) => {
 e.preventDefault()
 const queryVal = query.current.value
-props.fetchMovies(queryVal)
+props.fetchMovies(queryVal.trim())
 }
 
+const classes = useStyles()
 
     
         return (
     <form onSubmit={handleSearch} className="search-bar">
        
            <TextField
+           className="search-bar"
+           autoFocus={true}
           inputRef={query}
           id="outlined-full-width"
           label='Search Movies'
@@ -40,10 +53,14 @@ props.fetchMovies(queryVal)
                   ),
                   endAdornment : (
                     <InputAdornment position="end">
-                    <Button variant="contained" type="submit">Go</Button>
+                    <Button className="go" variant="contained" type="submit">Go</Button>
                   </InputAdornment>
-                  )
-                    
+                  ),
+                  classes: {
+                    root: classes.root,
+                    focused: classes.focused,
+                    notchedOutline: classes.notchedOutline
+                 }
                   
                 
             }}

@@ -9,23 +9,19 @@ import React, { Component } from 'react'
                     import Fab from '@material-ui/core/Fab'
                     import Snackbar from '@material-ui/core/Snackbar';
                     import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+                    import Badge from '@material-ui/core/Badge';
+                    import LinearProgress from '@material-ui/core/LinearProgress';
 
-                    const useStyles = makeStyles((theme) => ({
-                        margin: {
-                          margin: theme.spacing(1),
-                        },
-                        extendedIcon: {
-                          marginRight: theme.spacing(1),
-                        },
-                      }));
+
+             
               
 export default class MovieCards extends Component {
     state = {
         startIndex: 0,
         nominations: [],
         limit: false,
-        open: false
+        open: false,
+        progress: 0
 
     }
      
@@ -39,6 +35,39 @@ export default class MovieCards extends Component {
         this.setState(currentState => {
             return { startIndex: currentState.startIndex + 3}
         })
+        switch (this.props.movies.length) {
+            case 10:
+              this.setState({ progress: this.state.progress + 33.33});
+              break;
+            case 9:
+              this.setState({ progress: this.state.progress + 50});
+              break;
+            case 8:
+               this.setState({ progress: this.state.progress + 50});
+              break;
+            case 7:
+              this.setState({ progress: this.state.progress + 50});
+              break;
+            case 6:
+              this.setState({ progress: this.state.progress + 100});
+              break;
+            case 5:
+              this.setState({ progress: this.state.progress + 50});
+              break;
+            case 4:
+              this.setState({ progress: this.state.progress + 50});
+              break;
+            case 3:
+                this.setState({ progress: 100})
+              break;
+            case 2:
+                this.setState({ progress: 100})
+            break;
+            case 1: 
+            this.setState({ progress: 100})
+            
+
+          }
         console.log(this.state.startIndex)
     } 
     }
@@ -47,7 +76,43 @@ export default class MovieCards extends Component {
        if(this.state.startIndex >= 1) {
         this.setState(currentState => {
             return { startIndex: currentState.startIndex - 3}
-        })
+        });
+        switch (this.props.movies.length) {
+            case 10:
+              this.setState({ progress: this.state.progress - 33.33});
+              break;
+            case 9:
+              this.setState({ progress: this.state.progress - 50});
+              break;
+            case 8:
+               this.setState({ progress: this.state.progress - 50});
+              break;
+            case 7:
+              this.setState({ progress: this.state.progress - 50});
+              break;
+            case 6:
+              this.setState({ progress: this.state.progress - 100});
+              break;
+            case 5:
+              this.setState({ progress: this.state.progress - 50});
+              break;
+            case 4:
+              this.setState({ progress: this.state.progress - 50});
+              break;
+            case 3:
+                this.setState({ progress: this.state.progress - 0})
+              break;
+            case 2:
+                this.setState({ progress: this.state.progress - 0})
+            break;
+            case 1: 
+            this.setState({ progress: this.state.progress - 0})
+            
+
+          }
+          
+
+       
         console.log(this.state.startIndex)
     }
     }
@@ -78,25 +143,25 @@ export default class MovieCards extends Component {
     </svg>
         return (
             <div>
-                {this.state.limit ?  <Alert onClose={() => {this.setState({limit:false})}} severity="warning">
+                {this.state.limit ?  <Alert onClose={() => {this.setState({limit:false})}}  variant="filled" severity="error">
           <strong>Can only make five nominations</strong>
         </Alert>:  ''}
-        <Snackbar
+        {/* <Snackbar
         anchorOrigin={{
           vertical: 'top',
           horizontal: 'left',
         }}
         onClose={this.handleClose}
         open={this.state.open}
-        autoHideDuration={3000}
+        autoHideDuration={2500}
         message="Nomination added to list"
       
-        />
+        /> */}
             <div className="row">
                 {this.props.movies.slice(this.state.startIndex, this.state.startIndex + 3).map(movie => (
                     <div className="column">
                         <div className="card"> 
-                        {this.state.nominations.includes(movie)? <Button variant="disabled" onClick={() => this.addNomination(movie)}>Nominate</Button> : <Button onClick={() => this.addNomination(movie)}>Nominate</Button>}
+                        {this.state.nominations.includes(movie)? <Button variant="disabled" onClick={() => this.addNomination(movie)}>Nominate</Button> : <Button className="nominate-button" onClick={() => this.addNomination(movie)}>Nominate</Button>}
                         <img className="movie-poster" src={movie.Poster}/>
                         <p>({movie.Year})</p>
                         <p className="movie-title">{movie.Title}</p>
@@ -108,10 +173,11 @@ export default class MovieCards extends Component {
            
             </div>
             <NominationsContainer movies ={this.props.movies} nominations = {this.state.nominations}/>
-            <div className="directional-buttons">
             
-            <Fab className={useStyles.extendedIcon} variant="contained" onClick={e => this.handleMoreMoviesBack(e)}>{backward}</Fab>
-            <Fab variant="contained" onClick={e => this.handleMoreMovies(e)} >{forward}</Fab>
+            <div className="directional-buttons">
+            <LinearProgress className="progress-bar" variant="determinate" value={this.state.progress}></LinearProgress>
+            <Fab className="pager" variant="contained" onClick={e => this.handleMoreMoviesBack(e)}>{backward}</Fab>
+            <Fab className="pager" variant="contained" onClick={e => this.handleMoreMovies(e)} >{forward}</Fab>
             </div>
             </div>
         )

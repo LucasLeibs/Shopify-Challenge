@@ -41,7 +41,7 @@
 
   width: 800px;
   position: fixed;
-  top: 15%;
+  top:23%;
   left: 50%;
   transform: translate(-50%, -50%);
   
@@ -64,7 +64,7 @@ margin: 0 -5px;
 overflow: hidden;
 position: absolute;
 width: 900px;
-height: 400px;
+height: 410px;
 left: 50%;
 top: 55%;
 transform: translate(-47.2%, -50%);
@@ -88,7 +88,9 @@ transform: translate(-47.2%, -50%);
   text-align: center;
   background-color: #f1f1f1;
   margin: 10px;
+  background-color: #E3F1DF!important;
 }
+
 .movie-poster {
   height: 200px;
 }
@@ -96,7 +98,7 @@ transform: translate(-47.2%, -50%);
 
 .directional-buttons {
   position: absolute ;
-  top: 85%;
+  top: 87%;
   left: 50%;
   transform: translate(-47.2%, -50%);
 }
@@ -129,15 +131,70 @@ transform: translate(-47.2%, -50%);
 
 .drawer-button {
   position:absolute;
-  top: 25%;
+  top: 27%;
   left: 50%;
   transform: translate(-47.2%, -50%);
-  
-
+  background-color: #E3F1DF!important;
 }
+.list-button {
+  background-color: 
+  #173630!important;
+  color: white!important;
+}
+
 
 .nominations {
 width: 100vw;
 height: 100vh;
 }
 
+.pager {
+  margin-left: 5px!important;
+  margin-top: 20px;
+  color: 
+  white!important ;
+  background-color: #173630!important;
+  position: fixed;
+  
+  left: 37%;
+  
+}
+.app {
+  background-color:
+  #fbf7ed
+}
+
+.go {
+  background-color:  #BBE5B3!important
+ }
+
+ #list {
+   background-color: #fbf7ed!important
+ }
+
+ input:focus {
+   background:none!important;
+ }
+
+ .logo {
+position: fixed; 
+top: -1%;
+left: 50%;
+margin-top: 0;
+transform: translate(-50%, 0%);
+width: 250px;
+
+ }
+
+ .nominate-button:hover {
+   color: white!important;
+   background-color: #173630!important;
+   margin-bottom: 10px!important;
+ }
+
+ .progress-bar {
+   
+  width: 500px!important;
+  margin-bottom: 20px!important;
+  /* background: green!important */
+ }

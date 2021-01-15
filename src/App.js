@@ -6,7 +6,8 @@ import 'fontsource-roboto'
 function App() {
   
   return (
-    <div>
+    <div className="app">
+    
     <MovieContainer />
    
     </div>

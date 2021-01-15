@@ -12,6 +12,7 @@ import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { Alert, AlertTitle } from '@material-ui/lab';
+import Badge from '@material-ui/core/Badge';
 
 const useStyles = makeStyles({
     list:  {
@@ -36,7 +37,7 @@ const toggleDrawer = (open) => (event) => {
 const removeNomination = (nomination, index) => {
     props.nominations.splice(index, 1)
     setState(false)
-    return <Alert severity="warning">Deleted {nomination.Title}</Alert>
+   
     
 }
 const x = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
@@ -47,9 +48,13 @@ const x = <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="c
     return (
         <div className="nominations">
             {console.log("hi",props.nominations)}
-            <Button className="drawer-button" onClick={toggleDrawer(true)}> Nomination List</Button>
+            <div className="drawer-button">
+            <Badge  badgeContent={props.nominations.length} color="primary">
+            <Button  className="list-button" variant="contained" onClick={toggleDrawer(true)}> Nomination List</Button>
+            </Badge>
+            </div>
      <Drawer anchor='left' open={state} onClose={toggleDrawer(false)}>
-        <List className={classes.list}>
+        <List id="list" className={classes.list}>
             <h1 className="nomination-title">Nominations</h1>
         {props.nominations.map((nomination, index) =>  (
             

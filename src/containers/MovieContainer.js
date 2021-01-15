@@ -3,7 +3,7 @@ import MovieCards from '../components/MovieCards'
 import SearchBar from '../components/SearchBar'
 import Button from '@material-ui/core/Button';
 import NominationsContainer from './NominationsContainer'
-
+import photo from '../shopify.png'
 export default class MovieContainer extends Component {
     state = {
         movies:[], 
@@ -25,6 +25,7 @@ export default class MovieContainer extends Component {
         console.log(this.state.movies)
         return (
             <div>
+                <img class="logo"src={photo} alt="img"></img>
                 <SearchBar fetchMovies = {this.fetchMovies}/>
                 <MovieCards movies = {this.state.movies}/>
                 {/* <NominationsContainer movies = {this.state.movies} /> */}
