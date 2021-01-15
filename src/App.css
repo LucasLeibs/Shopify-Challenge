@@ -65,9 +65,9 @@ overflow: hidden;
 position: absolute;
 width: 900px;
 height: 400px;
-left: 40%;
+left: 50%;
 top: 55%;
-transform: translate(-50%, -50%);
+transform: translate(-47.2%, -50%);
 
 }
 .row:after {
@@ -97,7 +97,8 @@ transform: translate(-50%, -50%);
 .directional-buttons {
   position: absolute ;
   top: 80%;
-  left: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .movie-title {
