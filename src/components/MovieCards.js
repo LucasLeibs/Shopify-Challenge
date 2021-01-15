@@ -6,11 +6,17 @@ import React, { Component } from 'react'
                     import NominationsContainer from '../containers/NominationsContainer'
                     import MenuItem from '@material-ui/core/MenuItem';
                     import { Alert, AlertTitle } from '@material-ui/lab';
+                    import Fab from '@material-ui/core/Fab'
+                    import Snackbar from '@material-ui/core/Snackbar';
+                    import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+
                     const useStyles = makeStyles((theme) => ({
-                        root: {
-                          button: {
-                            margin: theme.spacing(1),
-                          },
+                        margin: {
+                          margin: theme.spacing(1),
+                        },
+                        extendedIcon: {
+                          marginRight: theme.spacing(1),
                         },
                       }));
               
@@ -18,9 +24,11 @@ export default class MovieCards extends Component {
     state = {
         startIndex: 0,
         nominations: [],
-        limit: false
+        limit: false,
+        open: false
 
     }
+     
     moviesToDisplay() {
         this.props.movies.slice(this.state.startIndex, this.state.startIndex + 3)
         console.log("hi", this.state.movies)
@@ -49,10 +57,17 @@ export default class MovieCards extends Component {
          this.setState({limit: true})}
          else { 
         this.setState({ 
-            nominations: [...this.state.nominations, movie]
+            nominations: [...this.state.nominations, movie],
+            open:true
         })}
+        console.log(this.state.open)
     }
-    
+    handleClose = () => {
+        this.setState({
+            open:false
+        })
+    }
+   
     render() {
         {console.log(this.state.nominations)}
         const backward = <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
@@ -63,11 +78,20 @@ export default class MovieCards extends Component {
     </svg>
         return (
             <div>
-                {this.state.limit ?  <Alert onClose={() => {this.setState({limit:false})}} severity="success">
-          <AlertTitle>Success</AlertTitle>
-          This is a success alert — <strong>check it out!</strong>
+                {this.state.limit ?  <Alert onClose={() => {this.setState({limit:false})}} severity="warning">
+          <strong>Can only make five nominations</strong>
         </Alert>:  ''}
-                
+        <Snackbar
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        onClose={this.handleClose}
+        open={this.state.open}
+        autoHideDuration={3000}
+        message="Nomination added to list"
+      
+        />
             <div className="row">
                 {this.props.movies.slice(this.state.startIndex, this.state.startIndex + 3).map(movie => (
                     <div className="column">
@@ -86,8 +110,8 @@ export default class MovieCards extends Component {
             <NominationsContainer movies ={this.props.movies} nominations = {this.state.nominations}/>
             <div className="directional-buttons">
             
-            <Button variant="contained" onClick={e => this.handleMoreMoviesBack(e)}>{backward}</Button>
-            <Button variant="contained" onClick={e => this.handleMoreMovies(e)} >{forward}</Button>
+            <Fab className={useStyles.extendedIcon} variant="contained" onClick={e => this.handleMoreMoviesBack(e)}>{backward}</Fab>
+            <Fab variant="contained" onClick={e => this.handleMoreMovies(e)} >{forward}</Fab>
             </div>
             </div>
         )

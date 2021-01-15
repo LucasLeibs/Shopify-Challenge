@@ -96,9 +96,9 @@ transform: translate(-47.2%, -50%);
 
 .directional-buttons {
   position: absolute ;
-  top: 80%;
+  top: 85%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-47.2%, -50%);
 }
 
 .movie-title {
@@ -123,3 +123,21 @@ transform: translate(-47.2%, -50%);
   width: 300px;
   height: 350px;
 }
+.nomination-title {
+  margin-left: 100px;
+}
+
+.drawer-button {
+  position:absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-47.2%, -50%);
+  
+
+}
+
+.nominations {
+width: 100vw;
+height: 100vh;
+}
+
