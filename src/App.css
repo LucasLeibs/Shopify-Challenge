@@ -88,7 +88,7 @@ transform: translate(-47.2%, -50%);
   text-align: center;
   background-color: #f1f1f1;
   margin: 10px;
-  background-color: #E3F1DF!important;
+  background-color: #FCF1CD!important;
 }
 
 .movie-poster {
@@ -165,7 +165,8 @@ height: 100vh;
 }
 
 .go {
-  background-color:  #BBE5B3!important
+  background-color:  #173630!important;
+  color: white!important
  }
 
  #list {
@@ -197,4 +198,13 @@ width: 250px;
   width: 500px!important;
   margin-bottom: 20px!important;
   /* background: green!important */
+ }
+
+ .no-results {
+   position : fixed;
+   left: 50%;
+top: 55%;
+transform: translate(-47.2%, -50%);
+align-content: center;
+text-align: center;
  }
