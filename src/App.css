@@ -93,8 +93,8 @@ transform: translate(-47.2%, -50%);
 
 .movie-poster {
   height: 200px;
+  width: 150px
 }
-
 
 .directional-buttons {
   position: absolute ;
@@ -186,11 +186,15 @@ transform: translate(-50%, 0%);
 width: 250px;
 
  }
-
+.nominate-button {
+  width: 90px!important;
+  margin: 0px !important
+}
  .nominate-button:hover {
    color: white!important;
    background-color: #173630!important;
-   margin-bottom: 5px!important;
+  width: 100px!important;
+  margin-bottom: 2px
  }
 
  .progress-bar {
