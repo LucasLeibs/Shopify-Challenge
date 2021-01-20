@@ -36,10 +36,7 @@ export default function NominationsContainer(props) {
     setState(open);
   };
 
-  const removeNomination = (index) => {
-    props.nominations.splice(index, 1);
-    setState(false);
-  };
+  
   const x = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +77,7 @@ export default function NominationsContainer(props) {
                 {index + 1}. {nomination.Title}
               </ListItemText>
               <IconButton
-                onClick={() => removeNomination(nomination, index)}
+                onClick={() => props.removeNomination(nomination)}
                 color="secondary"
                 aria-label="delete"
               >

@@ -123,6 +123,11 @@ export default class MovieCards extends Component {
       open: false,
     });
   };
+   removeNomination = (nom) => {
+    console.log("hi", nom)
+    this.setState({ nominations: this.state.nominations.filter(nomination => nomination.Title !== nom.Title)
+    })
+  };
 
   render() {
     {
@@ -219,6 +224,7 @@ export default class MovieCards extends Component {
         <NominationsContainer
           movies={this.props.movies}
           nominations={this.state.nominations}
+          removeNomination = {this.removeNomination}
         />
 
         <div className="directional-buttons">
