@@ -20,92 +20,38 @@ export default class MovieCards extends Component {
     open: false,
     progress: 0,
   };
+   movies = this.props.movies.slice(0,9)
+  
+  
+  
+  // handleMoreMovies = (e) => {
+  //   e.preventDefault();
+  //   let movies = this.props.movies.slice(0,9)
+  //   console.log("hello", this.props.progress)
+  //   if (this.props.startIndex <= 4 && this.props.progress < 100 && movies.length > 3) {
+  //     this.setState((currentState) => {
+      
+  //       return { startIndex: currentState.startIndex + 3 };
+      
+  //     })} 
+  //     this.props.addProgress()
+     
+  //     console.log(this.state.startIndex);
+    
+  // };
+  // handleMoreMoviesBack = (e) => {
+  //   e.preventDefault();
 
-  moviesToDisplay() {
-    this.props.movies.slice(this.state.startIndex, this.state.startIndex + 3);
-    console.log("hi", this.state.movies);
-  }
-  handleMoreMovies = (e) => {
-    e.preventDefault();
-    if (this.state.startIndex < 7) {
-      this.setState((currentState) => {
-        return { startIndex: currentState.startIndex + 3 };
-      });
-      switch (this.props.movies.length) {
-        case 10:
-          this.setState({ progress: this.state.progress + 33.33 });
-          break;
-        case 9:
-          this.setState({ progress: this.state.progress + 50 });
-          break;
-        case 8:
-          this.setState({ progress: this.state.progress + 50 });
-          break;
-        case 7:
-          this.setState({ progress: this.state.progress + 50 });
-          break;
-        case 6:
-          this.setState({ progress: this.state.progress + 100 });
-          break;
-        case 5:
-          this.setState({ progress: this.state.progress + 100 });
-          break;
-        case 4:
-          this.setState({ progress: this.state.progress + 100 });
-          break;
-        case 3:
-          this.setState({ progress: 100 });
-          break;
-        case 2:
-          this.setState({ progress: 100 });
-          break;
-        case 1:
-          this.setState({ progress: 100 });
-      }
-      console.log(this.state.startIndex);
-    }
-  };
-  handleMoreMoviesBack = (e) => {
-    e.preventDefault();
-    if (this.state.startIndex >= 1) {
-      this.setState((currentState) => {
-        return { startIndex: currentState.startIndex - 3 };
-      });
-      switch (this.props.movies.length) {
-        case 10:
-          this.setState({ progress: this.state.progress - 33.33 });
-          break;
-        case 9:
-          this.setState({ progress: this.state.progress - 50 });
-          break;
-        case 8:
-          this.setState({ progress: this.state.progress - 50 });
-          break;
-        case 7:
-          this.setState({ progress: this.state.progress - 50 });
-          break;
-        case 6:
-          this.setState({ progress: this.state.progress - 100 });
-          break;
-        case 5:
-          this.setState({ progress: this.state.progress - 100 });
-          break;
-        case 4:
-          this.setState({ progress: this.state.progress - 100 });
-          break;
-        case 3:
-          this.setState({ progress: this.state.progress - 0 });
-          break;
-        case 2:
-          this.setState({ progress: this.state.progress - 0 });
-          break;
-        case 1:
-          this.setState({ progress: this.state.progress - 0 });
-      }
+  //   if (this.state.startIndex >= 1) {
+  //     this.setState((currentState) => {
+  //       return { startIndex: currentState.startIndex - 3 };
+  //     });
+  //     this.props.decreaseProgress()
+      
 
-      console.log(this.state.startIndex);
-    }
-  };
+      
+  //   }
+  // };
 
   addNomination = (movie) => {
     if (this.state.nominations.length === 5) {
@@ -189,7 +135,7 @@ export default class MovieCards extends Component {
         {this.props.movies ? (
           <div className="row">
             {this.props.movies
-              .slice(this.state.startIndex, this.state.startIndex + 3)
+              .slice(this.props.startIndex, this.props.startIndex + 3)
               .map((movie) => (
                 <div className="column">
                   <div className="card">
@@ -231,19 +177,19 @@ export default class MovieCards extends Component {
           <LinearProgress
             className="progress-bar"
             variant="determinate"
-            value={this.state.progress}
+            value={this.props.progress}
           ></LinearProgress>
           <Fab
             className="pager"
             variant="contained"
-            onClick={(e) => this.handleMoreMoviesBack(e)}
+            onClick={(e) => this.props.handleMoreMoviesBack(e)}
           >
             {backward}
           </Fab>
           <Fab
             className="pager"
             variant="contained"
-            onClick={(e) => this.handleMoreMovies(e)}
+            onClick={(e) => this.props.handleMoreMovies(e)}
           >
             {forward}
           </Fab>
