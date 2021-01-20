@@ -1,4 +1,4 @@
-#The Shoppies
+## The Shoppies
 - [Demo](http://shopify-challenge-lucas-leiberman.surge.sh/)
 
 ## Available Scripts
