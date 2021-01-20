@@ -48,10 +48,10 @@ export default class MovieCards extends Component {
           this.setState({ progress: this.state.progress + 100 });
           break;
         case 5:
-          this.setState({ progress: this.state.progress + 50 });
+          this.setState({ progress: this.state.progress + 100 });
           break;
         case 4:
-          this.setState({ progress: this.state.progress + 50 });
+          this.setState({ progress: this.state.progress + 100 });
           break;
         case 3:
           this.setState({ progress: 100 });
@@ -88,10 +88,10 @@ export default class MovieCards extends Component {
           this.setState({ progress: this.state.progress - 100 });
           break;
         case 5:
-          this.setState({ progress: this.state.progress - 50 });
+          this.setState({ progress: this.state.progress - 100 });
           break;
         case 4:
-          this.setState({ progress: this.state.progress - 50 });
+          this.setState({ progress: this.state.progress - 100 });
           break;
         case 3:
           this.setState({ progress: this.state.progress - 0 });
