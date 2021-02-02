@@ -143,8 +143,8 @@ handleMoreMoviesBack = (e) => {
 };
   render() {
     return (
-      <div>
-        <img class="logo" src={photo} alt="img"></img>
+      <div className="container">
+        <img className="logo"src={photo} alt="img"></img>
         <SearchBar fetchMovies={this.fetchMovies} />
         <MovieCards  handleMoreMoviesBack = {this.handleMoreMoviesBack} 
                       handleMoreMovies = {this.handleMoreMovies}
@@ -153,6 +153,7 @@ handleMoreMoviesBack = (e) => {
                       addProgress= {this.addProgress} 
                       progress = {this.state.progress} 
                       movies={this.state.movies} />
+     
       </div>
     );
   }

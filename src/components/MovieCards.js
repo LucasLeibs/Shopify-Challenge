@@ -133,7 +133,9 @@ export default class MovieCards extends Component {
         )}
 
         {this.props.movies ? (
+           
           <div className="row">
+           
             {this.props.movies
               .slice(this.props.startIndex, this.props.startIndex + 3)
               .map((movie) => (
@@ -160,7 +162,8 @@ export default class MovieCards extends Component {
                   </div>
                 </div>
               ))}
-          </div>
+              </div>
+          
         ) : (
           <div className="no-results">
             {sad}

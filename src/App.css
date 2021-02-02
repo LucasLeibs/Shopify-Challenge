@@ -44,13 +44,15 @@
   top:23%;
   left: 50%;
   transform: translate(-50%, -50%);
+
   
 }
 
 .movie-results {
 
   width: 1000px;
-  height: 300px
+  height: 300px;
+  background-color:#173630;
 }
 
 .movie-card {
@@ -67,8 +69,7 @@ width: 900px;
 height: 410px;
 left: 50%;
 top: 55%;
-transform: translate(-47.2%, -50%);
-
+transform: translate(-47.4%, -50%);
 }
 .row:after {
     content: "";
@@ -186,6 +187,7 @@ transform: translate(-50%, 0%);
 width: 250px;
 
  }
+ 
 .nominate-button {
   width: 90px!important;
   margin: 0px !important
@@ -212,3 +214,45 @@ transform: translate(-47.2%, -50%);
 align-content: center;
 text-align: center;
  }
+
+ .banner {
+   background-color:#173630;
+   position: fixed;
+  top: 30%;
+   width: 1500px;
+   height: 900px;
+ }
+
+@media screen and (max-width: 1440px) {
+  .directional-buttons {
+    position: absolute ;
+    top: 90%;
+    left: 50%;
+    transform: translate(-48.2%, -50%);
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #f1f1f1;
+    margin: 10px;
+    background-color: white!important;
+  }
+  
+  .row {
+    margin: 0 -5px;
+    overflow: hidden;
+    position: absolute;
+    width: 900px;
+    height: 410px;
+    left: 50%;
+    top: 58%;
+    transform: translate(-47.4%, -50%);
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+  
+  }
